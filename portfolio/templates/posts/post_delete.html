@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }}
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid big-banner">
+        <div class="container main-display">
+            <h1 class="display-4">New Post</h1>
+            <!-- <p class="lead">Cheul Hee (Jason) Yoo</p> -->
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row justify-center'>
+            <div class='col-md-3'></div>
+            <div class='col-md-6 form-part'>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <button type='submit' class='btn btn-danger'>
+                        Delete The Post
+                    </button>
+                </form> 
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    {{ block.super }}
+{% endblock %}

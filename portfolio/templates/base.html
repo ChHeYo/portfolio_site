@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        {% block title %}
+            <title>Welcome to Jason's Artelier</title>
+        {% endblock title %}
+        {% block stylesheets %}
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+            rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous">
+            <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+            <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+            <link rel="shortcut icon" type="image/png" href="{% static 'image/favicon.png' %}">
+        {% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light background-and-color">
+            <div class='homepage-links'>
+                <a class="nav-item nav-link active" href="{% url 'homepage' %}">Home 
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="https://www.github.com/ChHeYo">Github</a>
+                <a class="nav-item nav-link" href="mailto:cheulheeyoo@gmail.com">Email</a>
+                {% if user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                {% endif %}
+            </div>
+        </nav>
+        {% block content %}
+        <div class="jumbotron jumbotron-fluid big-banner">
+            <div class="container main-display">
+                {% if user.is_authenticated %}
+                    <h1 class='hello-jason'>Hello Jason!</h1>
+                    <a class='btn btn-dark btn-lg' href="{% url 'post_new' %}">New Post</a>
+                {% else %}
+                    <h1 class="display-4">Jason Yoo</h1>
+                    <p class="lead">Cheul Hee Yoo</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class='container'>
+            <div class='row justify-center'>
+                <div class='col-md-4 section'>
+                    <a class='each-section' href="{% url 'data_post' %}">
+                        <h3>Data Analysis/Science</h3>
+                        <hr/>
+                        <p class='subtitle'>Pandas, NumPy, Matplotlib, SQL, ML</p>
+                        <div>
+                            <img class='main-icon' src="{% static 'image/cube_data.png' %}" alt="data_image">
+                        </div>
+                    </a>
+                </div>
+                <div class='col-md-4 section'>
+                    <a class='each-section' href="{% url 'pyjava_post' %}">
+                        <h3>Python/Java/JavaScript</h3>
+                        <hr/>
+                        <p class='subtitle'>Python, Java, JavaScript</p>
+                        <div>
+                            <img class='main-icon' src="{% static 'image/pyjava.png' %}" alt="python/java_image">
+                        </div>
+                    </a>
+                </div>
+                <div class='col-md-4 section'>
+                    <a class='each-section' href="{% url 'ios_post' %}">
+                        <h3>iOS/Misc</h3>
+                        <hr/>
+                        <p class='subtitle'>Swift, Photoshop, Inkscape, etc</p>
+                        <div>
+                            <img class='main-icon' src="{% static 'image/ios.png' %}" alt="ios_image">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+        {% block footer %}
+            <footer class='footer'>
+                <div class='container'>
+                    <p class='footer-info'>
+                        This site is powered by HTML, Bootstrap, Django, and JavaScript.
+                    </p>
+                </div>
+            </footer>
+        {% endblock footer %}
+    </body>
+</html>

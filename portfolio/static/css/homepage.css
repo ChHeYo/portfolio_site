@@ -1,0 +1,108 @@
+body {
+    font-family: 'Noto Serif', serif;
+    background-color: #e8eaed;
+}
+
+.background-and-color {
+    background-color: #283655;
+}
+
+.background-and-color a {
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.background-and-color a:hover {
+    text-decoration: underline;
+}
+
+.homepage-links {
+    margin: auto;
+}
+
+.big-banner {
+    background-color: #4D648D;
+}
+
+.main-display {
+    text-align: center;
+    color: white;
+}
+
+.justify-center {
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.each-section {
+    color: black;
+    text-decoration: None;
+}
+
+.each-section:hover {
+    color: black;
+    text-decoration: None;
+}
+
+.subtitle {
+    color: #babdc1;
+    margin-bottom: 20px;
+}
+
+.main-icon {
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 10px;
+}
+
+.footer {
+    background-color: #727b89;
+    text-align: center;
+    color: white;
+    padding: 2rem 0;
+    margin-top: 10px;
+}
+
+.footer-info {
+    margin-bottom: 0px;
+}
+
+/* login form */
+
+.login-form {
+    margin: 40px 0px;
+}
+
+.hello-jason {
+    margin-bottom: 30px;
+}
+
+
+/* For Individual Post */
+
+
+.btn-shadow {
+    box-shadow: 2px 2px #4D648D;
+}
+
+.post-content {
+    margin-bottom: 20px;
+}
+
+.edit-btn {
+    color: white;
+}
+
+.edit-btn:hover {
+    color: white;
+}
+
+/* create form */
+
+.form-part {
+    margin: 10px 0px 20px 0px;
+}

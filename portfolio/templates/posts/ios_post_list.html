@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }}
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid big-banner">
+        <div class="container main-display">
+            <h1 class="display-4">iOS / Misc</h1>
+            <!-- <p class="lead">Cheul Hee (Jason) Yoo</p> -->
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row justify-center'>
+            <div class='col-md-2'></div>
+            {% for each_post in ios_post_list %}
+                <div class='col-md-4 section'>
+                    <a class='each-section' href="{{ each_post.get_absolute_url }}">
+                        <h3>{{ each_post.title | title }}</h3>
+                        <hr/>
+                        <p class='subtitle'>{{ each_post.summary | capfirst }}</p>
+                        <div>
+                            <img class='main-icon' 
+                            src="{{ each_post.thumbnail.url }}" alt="{{ each_post.title }}_thumbnail"/>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    {{ block.super }}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ block.super }}
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock stylesheets %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid big-banner">
+        <div class="container main-display">
+            <h1 class="display-4">{{ individual_post.title | title }}</h1>
+            <!-- <p class="lead">Cheul Hee (Jason) Yoo</p> -->
+            <p>{{ individual_post.date_added|date:"M d, Y" }}</p>
+            {% if user.is_authenticated %}
+                <a href="{% url 'edit_post' individual_post.slug %}" 
+                class='btn btn-warning btn-lg edit-btn'>Edit</a>
+                <a href="{% url 'delete_post' individual_post.slug %}" 
+                class='btn btn-danger btn-lg edit-btn'>Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row justify-center'>
+            <div class='col-md-3'></div>
+            <div class='col-md-6 section'>
+                <h4 class='post-content'>{{ individual_post.content | capfirst }}</h4>
+                <div class='row'>
+                    <div class='col-md-3'></div>
+                    <div class='col-md-6'>
+                        {% if individual_post.link %}
+                            <a class='btn btn-outline-primary btn-block btn-lg btn-shadow'
+                            href="{{ individual_post.link }}">
+                                Github
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class='col-md-3'></div>
+                </div>
+            </div>
+            <div class='col-md-3'></div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block footer %}
+    {{ block.super }}
+{% endblock %}
